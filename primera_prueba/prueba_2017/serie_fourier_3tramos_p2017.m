@@ -60,7 +60,7 @@ potencia = (energia)*c; % c = 1/T. y Potencia = energia*1/T
 valormedio = (fx1 + fx2 + fx3)*c; % c = 1/T
 
 % print de resultados
-fprintf("\n\nEnergia de la señal: %f | Potencia de la se?al: %f | Valor medio de la señal: %f \n\n", energia, potencia, valormedio);
+fprintf("\n\nEnergia de la seÃ±al: %f | Potencia de la se?al: %f | Valor medio de la seÃ±al: %f \n\n", energia, potencia, valormedio);
 
 % Calculo de las Integrales del coeficiente Fn de serie de Fourier Exponencial
 Fx1 = int(tramo1*f_exponencial,t1,t2);
@@ -101,7 +101,7 @@ end
     
 for n=1:i
     [y, mf, wt, o] = coeficientesfn(Fn, n, w);
-    coef_fn(n+i+1) = y; % Como ya se escribió en los primeros i+1 posiciones del array, se lo sumamos a este argumento para comenzar una unidad despues.
+    coef_fn(n+i+1) = y; % Como ya se escribiÃ³ en los primeros i+1 posiciones del array, se lo sumamos a este argumento para comenzar una unidad despues.
     coef_wn(n+i+1) = wt;
     coef_angle(n+i+1) = o;
     fprintf("Para n = %d | W(rad/s): %f | desf: %f | fn: %f%+fj | fn^2: %f\n", n, wt, o, real(y), imag(y), mf);
@@ -133,7 +133,7 @@ figure; % Instancia donde se grafica, es decir, es la ventana que se abre al gra
 hold on; % Mantener diferentes graficos en una figura.
 title('Espectro fase de Fourier'); % Titulo del grafico
 stem(coef_wn, coef_angle); % grafico discreto stem del espectro de magnitud
-ylabel('<º [-pi/2, pi/2] (rad)'); % Titulo eje Y.
+ylabel('<Âº [-pi/2, pi/2] (rad)'); % Titulo eje Y.
 xlabel('w*n (rad/s)'); % Titulo eje X.
 grid minor; % Cuadriculas en la grafica.
 
@@ -153,7 +153,7 @@ grid minor; % Cuadriculas en la grafica.
 %
 vector_t = -10:0.1:10;
 fourier = zeros(1, length(vector_t));
-fc = matlabFunction(Fn); % Transforma la ecuacion simbolica Fn calculada anteriormente a una función de matlab, sus argumentos equivalen a sus variables simbolicas.
+fc = matlabFunction(Fn); % Transforma la ecuacion simbolica Fn calculada anteriormente a una funciÃ³n de matlab, sus argumentos equivalen a sus variables simbolicas.
 
 
 for k=1:length(fourier) %Calculo de cada valor de la serie
@@ -161,7 +161,7 @@ for k=1:length(fourier) %Calculo de cada valor de la serie
     suma = 0;
     for n=-arm:1:arm % Calculo de la sumatoria de la serie
         if n~=0
-            suma = suma + fc(n)*exp(j*n*w*t); % Calculo del Fn y su evaluación con la exponencial, luego se añade al resultado de la sumatoria
+            suma = suma + fc(n)*exp(j*n*w*t); % Calculo del Fn y su evaluaciÃ³n con la exponencial, luego se aÃ±ade al resultado de la sumatoria
         end
     end
     fourier(k) = suma + valormedio; % se le suma el valor medio que equivale a Fn con n=0.
